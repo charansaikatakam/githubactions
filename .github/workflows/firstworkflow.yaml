@@ -71,7 +71,7 @@ jobs:
           uses: actions/checkout@main
         - name: sops decrypt
           run: |
-            cd "${{ github.workspace }}"/"${ENV_NAME}"/
+            cd "${ENV_NAME}"/
             sops -d "${ENV_NAME}".tfvars.encrypted > "${ENV_NAME}".tfvars
             cat "${ENV_NAME}".tfvars
         - name: list
