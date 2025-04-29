@@ -76,7 +76,7 @@ jobs:
             cat "${ENV_NAME}".tfvars
         - name: tofu init and plan
           run: |
-            cd /githubactions/"${ENV_NAME}"/
+            cd "${{ github.workspace }}"/"${ENV_NAME}"/
             tofu init
             tofu plan -var-file="${ENV_NAME}.tfvars"
         
