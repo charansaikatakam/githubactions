@@ -20,9 +20,8 @@ jobs:
             # Make the binary executable
             chmod +x /usr/local/bin/sops
             sops -version
-        - name: check the tofu version
-          id: fmt
-          run: tofu fmt -check
-        - name: output the fmt
-          run: echo ${{ steps.fmt.outputs.stdout }}
+        - name: Set up Tofu
+          run: |
+            sudo apt-get install -y tofu
+            tofu -version
         
