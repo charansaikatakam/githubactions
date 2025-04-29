@@ -34,7 +34,7 @@ jobs:
             rm -f install-opentofu.sh
             tofu -version
         - name: Azure Login
-          uses: azure/login@v2
+          uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
         - name: Azure CLI script
