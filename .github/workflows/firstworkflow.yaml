@@ -1,5 +1,5 @@
 name: testingTheWorkflow
-on: push
+on: workflow_dispatch
 jobs:
     first_job:
         runs-on: ubuntu-latest
@@ -33,7 +33,7 @@ jobs:
             # Remove the installer:
             rm -f install-opentofu.sh
             tofu -version
-        - name: Azure Login with update cred
+        - name: Azure Login
           uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
