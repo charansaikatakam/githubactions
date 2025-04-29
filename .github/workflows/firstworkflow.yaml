@@ -4,11 +4,14 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
+        - uses: opentofu/setup-opentofu@v1.0.5
+          with:
+            tofu_version: 1.9.1
         - name: testing the echo
           run: echo "echo worked"
         - name: check the list of files
           run: ls
-        - name: installing sops
+        - name: installing sops and check version
           run: |
             # Download the binary
             curl -LO https://github.com/getsops/sops/releases/download/v3.10.2/sops-v3.10.2.linux.amd64
@@ -16,5 +19,10 @@ jobs:
             mv sops-v3.10.2.linux.amd64 /usr/local/bin/sops
             # Make the binary executable
             chmod +x /usr/local/bin/sops
-        - name: check the sops version
-          run: sops -version
+            sops -version
+        - name: check the tofu version
+          id: fmt
+          run: tofu fmt -check
+        - name: output the fmt
+          run: echo ${{ steps.fmt.outputs.stdout }}
+        
