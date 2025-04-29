@@ -71,8 +71,7 @@ jobs:
           uses: actions/checkout@main
         - name: sops decrypt
           run: |
-            ls ${{ github.workspace }}
-            cd "${{ github.workspace }}"/githubactions/"${ENV_NAME}"/
+            cd "${{ github.workspace }}"/"${ENV_NAME}"/
             sops -d "${ENV_NAME}".tfvars.encrypted > "${ENV_NAME}".tfvars
             cat "${ENV_NAME}".tfvars
         - name: tofu init and plan
