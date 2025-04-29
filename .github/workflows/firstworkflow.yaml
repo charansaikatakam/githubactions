@@ -33,7 +33,7 @@ jobs:
             # Remove the installer:
             rm -f install-opentofu.sh
             tofu -version
-        - name: Azure Login
+        - name: Azure Login with update cred
           uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
