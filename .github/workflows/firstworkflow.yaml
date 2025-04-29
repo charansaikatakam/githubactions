@@ -43,4 +43,24 @@ jobs:
             azcliversion: latest
             inlineScript: |
               az account show
+        - name: Determine Environment Name
+          id: env
+          run: |
+            BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+            echo "Branch name: $BRANCH_NAME"
+        
+            if [[ "$BRANCH_NAME" == *"main"]]; then
+              ENVIRONMENT="production"
+            elif [[ "$BRANCH_NAME" == *"staging" ]]; then
+              ENVIRONMENT="staging"
+            elif [[ "$BRANCH_NAME" == *"dev" ]]; then
+              ENVIRONMENT="development"
+            elif [[ "$BRANCH_NAME" == *"uat" ]]; then
+              ENVIRONMENT="uat"
+            else
+              echo "❌ Unsupported environment! Only 'stage' and 'prod' are allowed."
+              exit 1
+            fi
+            echo "Detected environment: $ENVIRONMENT"
+            echo "ENV_NAME=$ENVIRONMENT" >> $GITHUB_ENV
         

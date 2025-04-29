@@ -1,0 +1,18 @@
+{
+	"data": "ENC[AES256_GCM,data:Vnw0QncinQx9+g65YczVcLF2trLWtnGadFSMr1k=,iv:9er9MlvIuC4Rmt5fmtrhvbxqU0X1HK0RtxSR7qI72Jo=,tag:YogvTKYUo0QNxLR0PA81Ow==,type:str]",
+	"sops": {
+		"azure_kv": [
+			{
+				"vault_url": "https://terraformkeyspersonal.vault.azure.net",
+				"name": "updatedkeys",
+				"version": "91908b0b427e412db031c1326073a3ca",
+				"created_at": "2025-04-29T11:38:54Z",
+				"enc": "dvh-Pu9lnIR_Bg_CMSrucDkO08YNz0MoF0Zc3GVHBpWZSIN3or_uCljjfidhmpBMhm8gPSRX6kwinXpOLBaZ_57z02ZeA0eVuh1MXKv5OoBzWBKTAxUjeN5sDFeCVjzCsGr_jueB0_REAI259k0eE-p2mBrUo3hIJjid_nUaPw5wdh4oPKFHHyiT6k3F3b_ccioSKD1huajSxuKopAOqS6hawWPnmhBtn84vzarHxkjtCeyvcb1NXFJZrXYmt9zwOAsM2Z0q-izuId-3MczSQ_edxNbALLE--pARUzRwpruKFPyjnXWxxUZXve9Lvx_WGHcroo-QqHzkQhl415fKFw"
+			}
+		],
+		"lastmodified": "2025-04-29T11:38:57Z",
+		"mac": "ENC[AES256_GCM,data:xonBjbgVwrd0hX6U5EF9MlRdqzdfFsdo5/Ser1YKzIgALdZybmt7Yu2581NCe1iaLbelGyYo4Wmyl5Y4XgcLegWsTcCrQw9PUUKVxTJNpmnOpQj93P9w8IoDfrLVw5qKva3Bl5cylAj2smrCHzYV8loJhNPcD4d+oxHfAuAlIco=,iv:lzQT0k921T9k66Ka7eXoFFd4WSprR5Pr/kqg+IP+7ig=,tag:DpAEQkLpJZmprKd1R9hn3A==,type:str]",
+		"unencrypted_suffix": "_unencrypted",
+		"version": "3.10.2"
+	}
+}

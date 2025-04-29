@@ -1,0 +1,3 @@
+creation_rules:
+  # - path_regex: production.tfvars
+  - azure_keyvault: "https://terraformkeyspersonal.vault.azure.net/keys/terraformkeys/235ac49de95f47c3927f61d1f9693317"
