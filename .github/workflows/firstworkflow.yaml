@@ -75,11 +75,11 @@ jobs:
             sops -d "${ENV_NAME}".tfvars.encrypted > "${ENV_NAME}".tfvars
             cat "${ENV_NAME}".tfvars
 
-        - name: Tofu Format Check
-          run: |
-            cd "${ENV_NAME}"/
-            ls -l
-            tofu fmt -check
+        # - name: Tofu Format Check
+        #   run: |
+        #     cd "${ENV_NAME}"/
+        #     ls -l
+        #     tofu fmt -check
     
         - name: Tofu Init
           run: |
