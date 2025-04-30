@@ -74,21 +74,33 @@ jobs:
             cd "${ENV_NAME}"/
             sops -d "${ENV_NAME}".tfvars.encrypted > "${ENV_NAME}".tfvars
             cat "${ENV_NAME}".tfvars
-        - name: list
-          run: ls ${{ github.workspace }}
 
-        # - name: Tofu Format Check
-        #   run: tofu fmt -check
+        - name: Tofu Format Check
+          run: |
+            cd "${ENV_NAME}"/
+            tofu fmt -check
     
-        # - name: Tofu Init
-        #   run: tofu init
+        - name: Tofu Init
+          run: |
+            cd "${ENV_NAME}"/
+            tofu init
     
-        # - name: Tofu Validate
-        #   run: tofu validate
+        - name: Tofu Validate
+          run: |
+            cd "${ENV_NAME}"/
+            tofu validate
 
-        # - name: plan
-        #   run: |
-        #     cd "${{ github.workspace }}"/"${ENV_NAME}"/
-        #     tofu init
-        #     tofu plan -var-file="${ENV_NAME}.tfvars"
+        - name: plan
+          run: |
+            cd "${ENV_NAME}"/
+            tofu plan -var-file="${ENV_NAME}.tfvars"
+      
+        - name: Manual Approval
+          uses: trstringer/manual-approval@v1
+          with:
+            secret: ${{ secrets.GITHUB_TOKEN }}
+            approvers: charansaikatakam
+            minimum-approvals: 1
+            issue-title: "Approval required to apply Tofu changes"
+            issue-body: "Approve to proceed with tofu apply."
         
