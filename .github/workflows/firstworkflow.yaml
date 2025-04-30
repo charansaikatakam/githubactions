@@ -101,7 +101,7 @@ jobs:
           uses: trstringer/manual-approval@v1
           with:
             secret: ${{ secrets.GITHUB_TOKEN }}
-            approvers: charansaikatakam
+            approvers: self
             minimum-approvals: 1
             issue-title: "Approval required to apply Tofu changes"
             issue-body: "Approve to proceed with tofu apply."
